@@ -1,0 +1,35 @@
+@import '../variables/colors';
+@import '../general/breakpoints';
+
+html {
+	font-family: 'Roboto', Arial, sans-serif;
+	font-size: 10px;
+}
+
+html,
+body {
+	box-sizing: border-box;
+	height: 100%;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: normal;
+}
+
+a,
+button,
+input[type="button"],
+input[type="submit"],
+textarea {
+	display: inline-block;
+	text-decoration: none;
+	outline: none;
+	border: none;
+	background: transparent;
+}
+
+button, a {
+	cursor: pointer;
+}

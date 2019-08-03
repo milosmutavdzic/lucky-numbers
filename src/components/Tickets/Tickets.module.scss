@@ -1,0 +1,16 @@
+@import "../../styles/variables/colors";
+
+.Tickets {
+    display: grid;
+    min-width: 40rem;
+    grid-template-rows: repeat(5, auto);
+    grid-template-columns: auto;
+    grid-row-gap: 1rem;
+    column-gap: 1rem;
+    justify-content: center;
+    border: 1px solid $c-ticket-border;
+    border-radius: 1rem;
+    background-color: $c-ticket-background;
+    padding: 2rem;
+
+}

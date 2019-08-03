@@ -1,0 +1,14 @@
+@import "../../styles/variables/colors";
+
+.Bet {
+    display: grid;
+    grid-template-columns: repeat(6,auto);
+    grid-template-rows: auto auto;
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+    justify-content: center;
+    border: 1px solid $c-ticket-border;
+    border-radius: 1em;
+    background-color: $c-ticket-background;
+    padding: 2em;
+}

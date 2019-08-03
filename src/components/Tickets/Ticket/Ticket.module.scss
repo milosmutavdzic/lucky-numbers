@@ -1,0 +1,19 @@
+@import "../../../styles/variables/colors";
+.Ticket {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(5,auto);
+    grid-template-rows: auto;
+    column-gap: 1em;
+    border-bottom: 1px solid $c-ticket-border;
+    background: $c-ticket-background;;
+    padding: 1em;
+}
+
+.TicketWinner {
+    background: $c-success;
+}
+
+.TicketLoser {
+    background: $c-error;
+}

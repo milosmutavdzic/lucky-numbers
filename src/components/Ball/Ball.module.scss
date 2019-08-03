@@ -1,0 +1,35 @@
+@import "../../styles/variables/colors";
+
+.Ball {
+    position: relative;
+    border-radius: 100%;
+    width: 5rem;
+    height: 5rem;
+    background: $c-ball-gray;
+    padding: 1rem;
+    margin-bottom: .5rem;
+    color: $c-white;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    display: inline-block;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.BallActive {
+    background: $c-ball-yellow;
+}
+
+.BallInside {
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    line-height: 30px;
+    background-color: $c-white;
+    color: $c-black;
+    border-radius: 50%;
+    margin-left: -1.5rem;
+}
