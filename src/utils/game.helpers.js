@@ -11,13 +11,19 @@ export const updateTickets = (tickets, currentTicket) => {
     return [...tickets, [...currentTicket]]
 }
 
+const getRandomNum = (min,max) => {
+    return Math.floor(Math.random() * (max - min)) + 1;
+}
 export const addNewRandomNumer = drawn => {
-    let random = Math.floor(Math.random() * (30 - 1)) + 1;
-    if (drawn.indexOf(random) === -1) {
-        drawn.push(random);
-    }
-    else {
-        random = Math.floor(Math.random() * (30 - 1)) + 1;
+    let random = getRandomNum(1, 30);
+    for(;;){
+        if (drawn.indexOf(random) === -1) {
+            drawn.push(random);
+            break;
+        }
+        else {
+            random = getRandomNum(1, 30);
+        }
     }
     return drawn;
 }

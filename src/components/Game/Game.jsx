@@ -19,7 +19,8 @@ import {
     ADD_TICKET,
     START_GAME,
     MAX_NUMBERS_IN_TICKET,
-    NUMBER_OF_DRAWING
+    NUMBER_OF_DRAWING,
+    DRAWING_INTERVAL
 } from './Game.constants';
 
 //Styles
@@ -55,7 +56,7 @@ export default class Game extends React.Component {
     }
 
     addTicket() {
-        if(!this.state.currentTicket.length) return;
+        if (!this.state.currentTicket.length) return;
         this.setState(
             prevState =>
                 ({
@@ -66,23 +67,27 @@ export default class Game extends React.Component {
                 }));
     }
 
-    startGame() {
-        this.setState({ isPlaying: true });
-        this.drawNext();
+    drawNext() {
+        this.setState(
+            prevState =>
+                ({
+                    ...prevState,
+                    drawn: addNewRandomNumer(prevState.drawn),
+                }));
+        (this.state.drawn.length === NUMBER_OF_DRAWING ) && this.finishGame();
     }
 
-    drawNext() {
-        if (this.state.drawn.length < NUMBER_OF_DRAWING) {
-            this.setState(
-                prevState =>
-                    ({
-                        ...prevState,
-                        drawn: addNewRandomNumer(prevState.drawn),
-                    }));
-        } else {
-            this.finishGame();
-        }
-        setTimeout(() => { this.drawNext() }, 2000);
+    startGame() {
+        this.setState({ isPlaying: true });
+        const startTime = Date.now();
+        const drawingDuration = (NUMBER_OF_DRAWING + 1) * DRAWING_INTERVAL;
+        let interval = setInterval(() => {
+            if (Date.now() - startTime > drawingDuration) {
+                clearInterval(interval);
+            } else {
+                this.drawNext();
+            }
+        }, DRAWING_INTERVAL);
     }
 
     finishGame() {
